@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jeu : Trouve le nombre</title>
+</head>
+<body>
+
+  <h1>Trouve le nombre entre 1 et 100</h1>
+
+  <p>Devine le nombre : <input type="text" id="guess"></p>
+  <button id="submit">Soumettre</button>
+
+  <p id="result"></p>
+
+  <script>
+    let targetNumber = Math.floor(Math.random() * 100) + 1;
+    let resultDisplay = document.getElementById("result");
+    let submitButton = document.getElementById("submit");
+
+    submitButton.addEventListener("click", function() {
+      let guess = document.getElementById("guess").value;
+      if (guess == targetNumber) {
+        resultDisplay.innerHTML = "Bravo! Tu as trouvé le bon nombre!";
+      } else if (guess < targetNumber) {
+        resultDisplay.innerHTML = "Le nombre recherché est plus grand.";
+      } else {
+        resultDisplay.innerHTML = "Le nombre recherché est plus petit.";
+      }
+    });
+  </script>
+
+</body>
+</html>
